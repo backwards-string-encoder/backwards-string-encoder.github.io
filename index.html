@@ -6,15 +6,16 @@
   <title>String Reverser</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: system-ui, sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: #f0f4f8;
-}   
+    body {
+      font-family: system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #f0f4f8;
+    }
+    img { margin-bottom: 1rem; }
     .card {
       background: #fff;
       padding: 2rem;
@@ -56,28 +57,27 @@ body {
   </style>
 </head>
 <body>
-<body>
-  <img src="gif.gif" alt="" style="margin-bottom: 1rem;">
+  <img src="gif.gif" alt="">
   <div class="card">
     <h1>Reverse a String</h1>
     <input type="text" id="input" placeholder="Type something here…">
     <button onclick="reverse()">Reverse</button>
     <div class="result" id="output"></div>
   </div>
-</body>   
   <script>
     const sounds = ["1.mp3", "2.mp3", "3.mp3", "4.mp3"];
     let index = 0;
     const audio = new Audio();
 
     function reverse() {
-  const str = document.getElementById('input').value;
-  document.getElementById('output').textContent = str.split(' ').map(word => [...word].reverse().join('')).join(' ');
+      const str = document.getElementById('input').value;
+      const result = str.split(' ').map(word => [...word].reverse().join('')).join(' ');
+      document.getElementById('output').textContent = result;
 
-  audio.src = sounds[index];
-  audio.play();
-  index = (index + 1) % sounds.length;
-}
+      audio.src = sounds[index];
+      audio.play();
+      index = (index + 1) % sounds.length;
+    }
 
     document.getElementById('input').addEventListener('keydown', e => {
       if (e.key === 'Enter') reverse();
