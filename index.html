@@ -71,13 +71,13 @@ body {
     const audio = new Audio();
 
     function reverse() {
-      const str = document.getElementById('input').value;
-      document.getElementById('output').textContent = [...str].reverse().join('');
+  const str = document.getElementById('input').value;
+  document.getElementById('output').textContent = str.split(' ').map(word => [...word].reverse().join('')).join(' ');
 
-      audio.src = sounds[index];
-      audio.play();
-      index = (index + 1) % sounds.length;
-    }
+  audio.src = sounds[index];
+  audio.play();
+  index = (index + 1) % sounds.length;
+}
 
     document.getElementById('input').addEventListener('keydown', e => {
       if (e.key === 'Enter') reverse();
